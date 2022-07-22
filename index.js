@@ -20,7 +20,6 @@ const gameOver = () => {
         box = document.getElementsByClassName('box')[i]
         box.style.pointerEvents = 'none'
         box.style.opacity = '.1'
-        box.title = 'Clicked not allowed'
     }
 
     // Showing Modal Property when CurrentPlayer or computer win
@@ -37,6 +36,16 @@ const gameDraw = () => {
     var newAddDiv = document.createElement('div')
     newAddDiv.innerHTML = `<h1>What a game! Match Draw!</h1>`
     containerDiv.appendChild(newAddDiv);
+
+    // After Mashing one of Principle Logic, Boxed click is not required.So, Stoping Boxed Click
+    for (let i = 0; i < 9; i++) {
+        box = document.getElementsByClassName('box')[i]
+        box.style.pointerEvents = 'none'
+        box.style.opacity = '.1'
+    }
+    // 
+    titleOpa = document.getElementById('titleText')
+    titleOpa.style.opacity = '.1'
 }
 // Draw Counter
 var count = 1
@@ -65,9 +74,9 @@ displayRem.addEventListener('click', function handleClick(event) {
     console.log(event.target);
     event.target.remove();
     reStart()
+    // Title Text style Remove
     titleOpa = document.getElementById('titleText')
-    titleOpa.style = ''
-    box.title = ''
+    titleOpa.style.opacity = ''
 });
 
 // Principle Logic
@@ -127,13 +136,16 @@ function reStart() {
         divText = document.querySelectorAll('.box')[i]
         divText.innerHTML = ' '
         divText.style = 'none'
-        divText.title = 'Sajjad'
+        divText.title = 'Tanjimul'
     }
     bodyOpac = document.getElementById('body')
     bodyOpac.style = 'none'
     // Win Show Modal display Properties are being Empty.
     containerDiv = document.getElementById('winnigDisplay')
     containerDiv.innerHTML = ' '
+    // Title Text style Remove
+    titleOpa = document.getElementById('titleText')
+    titleOpa.style.opacity = ''
     currentPlayer = X_TEXT
 };
 // Starting Game From here

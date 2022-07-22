@@ -12,9 +12,9 @@ body {
     font-family: 'Indie Flower', 'Comic Sans', cursive;
     font-size: 0.7em;
     position: relative;
-    background-image: url(./images/old-black-background-grunge-texture-dark-wallpaper-blackboard-chalkboard-room-wall_1258-28312.webp);
+    background-image: url(./images/marcel-strauss-lRIMRLE9SOk-unsplash.jpg);
     background-repeat: no-repeat;
-    background-size: cover;
+
 }
 
 h1 {
@@ -22,7 +22,7 @@ h1 {
     line-height: 1em;
     margin-bottom: 0;
     padding-bottom: 5px;
-    font-size: 2.8em;
+    font-size: 3em;
     font-weight: bold;
 }
 
@@ -52,21 +52,22 @@ h1 {
 
 .box {
     border-radius: 3px;
-    min-height: 100px;
-    min-width: 100px;
+    min-height: 120px;
+    min-width: 150px;
     border: rgb(249, 246, 246) 1px solid;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 60px;
+    font-size: 70px;
+    font-style: normal;
     font-family: "Permanent Marker", cursive;
-    color: rgb(243, 243, 16);
+    color: rgb(216, 216, 4);
     cursor: pointer;
 }
 
 .result {
     text-align: center;
-    margin-top: 3.5rem;
+    margin-top: 3rem;
 }
 
 .result span {
@@ -106,6 +107,6 @@ h1 {
 }
 
 .winModal h1:hover {
-    background-color: rgb(155, 2, 178);
-    color: rgb(245, 241, 241);
+    background-color: rgb(226, 220, 42);
+    color: rgb(11, 11, 11);
 }
