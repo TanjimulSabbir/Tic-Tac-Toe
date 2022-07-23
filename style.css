@@ -53,7 +53,7 @@ h1 {
 .box {
     border-radius: 3px;
     min-height: 120px;
-    min-width: 150px;
+    min-width: 120px;
     border: rgb(249, 246, 246) 1px solid;
     display: flex;
     justify-content: center;
@@ -61,8 +61,26 @@ h1 {
     font-size: 70px;
     font-style: normal;
     font-family: "Permanent Marker", cursive;
-    color: rgb(216, 216, 4);
+    color: rgb(4, 216, 174);
     cursor: pointer;
+}
+
+@media only screen and (max-width: 350px) {
+
+    /* For mobile phones: */
+    .box {
+        border-radius: 3px;
+        min-height: 100px;
+        min-width: 100px;
+        border: rgb(240, 6, 6) 1px solid;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 30px;
+        font-family: "Permanent Marker";
+        color: rgb(4, 216, 174);
+        cursor: pointer;
+    }
 }
 
 .result {
@@ -91,7 +109,7 @@ h1 {
 
 .winModal {
     position: absolute;
-    top: 0;
+    top: 25%;
     right: 0;
     left: 0;
 }
@@ -101,7 +119,7 @@ h1 {
     padding: 25px;
     color: rgb(248, 215, 49);
     border-radius: 5px;
-    font-size: 40px;
+    font-size: 20px;
     background-color: #010101fd;
     border: .1px whitesmoke solid;
 }

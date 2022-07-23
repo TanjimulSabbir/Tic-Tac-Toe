@@ -7,6 +7,8 @@ let currentPlayer = X_TEXT
 // When Game Start && Clicked Boxes Item(s)
 const startGame = () => {
     boxes.forEach(box => box.addEventListener('click', boxClicked))
+    startgameSound = new Audio('./music/start/intro-music-black-box-brand-jingle-13222 (mp3cut.net).mp3')
+    startgameSound.play()
 }
 // When the Game Principle Logic Mashed with one of Logic
 const gameOver = () => {
@@ -28,6 +30,14 @@ const gameOver = () => {
     var newAddDiv = document.createElement('div')
     newAddDiv.innerHTML = `<h1>Congratulation! ${currentPlayer} won the Game!</h1>`
     containerDiv.appendChild(newAddDiv);
+    if (currentPlayer == 'X') {
+        myMusic = new Audio('./music/win/friend-request-14878.mp3')
+        myMusic.play()
+    }
+    else {
+        myMusic = new Audio('./music/win/2/sfx-victory2.mp3')
+        myMusic.play()
+    }
 }
 // When Principle Logic isn't Mashed Up with none.This Match Will be Draw.Showing Here Match Drawing By Modal Window.
 const gameDraw = () => {
@@ -46,6 +56,8 @@ const gameDraw = () => {
     // 
     titleOpa = document.getElementById('titleText')
     titleOpa.style.opacity = '.1'
+    startgameSound = new Audio('./music/draw/mixkit-video-game-bomb-alert-2803.wav')
+    startgameSound.play()
 }
 // Draw Counter
 var count = 1
