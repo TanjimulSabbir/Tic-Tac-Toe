@@ -1,3 +1,4 @@
+
 let gameBoard = document.getElementById('gameBoard')
 var boxes = Array.from(document.getElementsByClassName('box'))
 
@@ -7,90 +8,21 @@ let currentPlayer = X_TEXT
 // When Game Start && Clicked Boxes Item(s)
 const startGame = () => {
     boxes.forEach(box => box.addEventListener('click', boxClicked))
-    startgameSound = new Audio('./music/start/intro-music-black-box-brand-jingle-13222 (mp3cut.net).mp3')
-    startgameSound.play()
 }
-// When the Game Principle Logic Mashed with one of Logic
-const gameOver = () => {
-    // opacity
-    bodyOpac = document.getElementById('body')
-    bodyOpac.style.cursor = 'pointer'
-    titleOpa = document.getElementById('titleText')
-    titleOpa.style.opacity = '.1'
-    // After Mashing one of Principle Logic, Boxed click is not required.So, Stoping Boxed Click
-    for (let i = 0; i < 9; i++) {
-        box = document.getElementsByClassName('box')[i]
-        box.style.pointerEvents = 'none'
-        box.style.opacity = '.1'
-    }
-
-    // Showing Modal Property when CurrentPlayer or computer win
-    containerDiv = document.getElementById('winnigDisplay')
-    containerDiv.classList.add('winModal')
-    var newAddDiv = document.createElement('div')
-    newAddDiv.innerHTML = `<h1>Congratulation! ${currentPlayer} won the Game!</h1>`
-    containerDiv.appendChild(newAddDiv);
-    if (currentPlayer == 'X') {
-        myMusic = new Audio('./music/win/friend-request-14878.mp3')
-        myMusic.play()
-    }
-    else {
-        myMusic = new Audio('./music/win/2/sfx-victory2.mp3')
-        myMusic.play()
+// When a box(es) clicked
+function boxClicked(e) {
+    id = e.target.id
+    if (boxes) {
+        if (!(e.target.innerText)) {
+            e.target.innerText = currentPlayer
+        }
+        else {
+            boxClicked()
+        }
+        winingplayer()
+        currentPlayer = currentPlayer == X_TEXT ? O_TEXT : X_TEXT
     }
 }
-// When Principle Logic isn't Mashed Up with none.This Match Will be Draw.Showing Here Match Drawing By Modal Window.
-const gameDraw = () => {
-    containerDiv = document.getElementById('winnigDisplay')
-    containerDiv.classList.add('winModal')
-    var newAddDiv = document.createElement('div')
-    newAddDiv.innerHTML = `<h1>What a game! Match Draw!</h1>`
-    containerDiv.appendChild(newAddDiv);
-
-    // After Mashing one of Principle Logic, Boxed click is not required.So, Stoping Boxed Click
-    for (let i = 0; i < 9; i++) {
-        box = document.getElementsByClassName('box')[i]
-        box.style.pointerEvents = 'none'
-        box.style.opacity = '.1'
-    }
-    // 
-    titleOpa = document.getElementById('titleText')
-    titleOpa.style.opacity = '.1'
-    startgameSound = new Audio('./music/draw/mixkit-video-game-bomb-alert-2803.wav')
-    startgameSound.play()
-}
-// Draw Counter
-var count = 1
-const gameDrawCount = () => {
-    var disp = document.getElementById("draw");
-    disp.innerText = count;
-    count++;
-}
-// X Win Counter
-var countX = 1
-const XWinCount = () => {
-    var dispX = document.getElementById("XP");
-    dispX.innerText = countX;
-    countX++;
-}
-// O win counter
-var countO = 1
-const OWinCount = () => {
-    var disp = document.getElementById("OP");
-    disp.innerText = countO;
-    countO++;
-}
-//Wininng Modal Window is Removing By clicked itself.
-const displayRem = document.getElementById('winnigDisplay')
-displayRem.addEventListener('click', function handleClick(event) {
-    console.log(event.target);
-    event.target.remove();
-    reStart()
-    // Title Text style Remove
-    titleOpa = document.getElementById('titleText')
-    titleOpa.style.opacity = ''
-});
-
 // Principle Logic
 function winingplayer() {
     C0 = boxes[0].innerText
@@ -126,39 +58,293 @@ function winingplayer() {
         gameDraw(), gameDrawCount()
     }
 }
-// When a box(es) clicked
-function boxClicked(e) {
-    id = e.target.id
-    if (boxes) {
-        if (!(e.target.innerText)) {
-            e.target.innerText = currentPlayer
+// When the Game Principle Logic Mashed with one of Logic
+const gameOver = () => {
+    // opacity
+    bodyOpac = document.getElementById('body')
+    bodyOpac.style.cursor = 'pointer'
+    titleOpa = document.getElementById('titleText')
+    titleOpa.style.opacity = '.1'
+    // After Mashing one of Principle Logic, Boxed click is not required.So, Stoping Boxed Click
+    for (let i = 0; i < 9; i++) {
+        box = document.getElementsByClassName('box')[i]
+        box.style.pointerEvents = 'none'
+        box.style.opacity = '.1'
+    }
+    // gameBoard = document.getElementById('gameBoard')
+    // gameBoard.style.opacity = '.1'
+
+    // Showing Modal Property When Current Player or Computer Win
+    containerDiv = document.getElementById('winnigDisplay')
+    containerDiv.classList.add('winModal')
+    var newAddDiv = document.createElement('div')
+    newAddDiv.innerHTML = `<h1>Congratulation! ${currentPlayer} won the Game!</h1>`
+    containerDiv.appendChild(newAddDiv);
+    if (currentPlayer == 'X') {
+
+        randomNum = Math.floor(Math.random() * 2)
+        if (randomNum == 0) {
+            document.getElementById('xSound-0').play()
         }
-        else {
-            boxClicked()
+        if (randomNum == 1) {
+            document.getElementById('xSound-1').play()
         }
-        winingplayer()
-        currentPlayer = currentPlayer == X_TEXT ? O_TEXT : X_TEXT
+        if (randomNum == 2) {
+            document.getElementById('xSound-2').play()
+        }
+    }
+    else {
+        oSound = document.getElementById('oSound')
+        oSound.play()
     }
 }
+// When Principle Logic isn't Mashed Up with none.This Match Will be Draw.Showing Here Match Drawing By Modal Window.
+const gameDraw = () => {
+    containerDiv = document.getElementById('winnigDisplay')
+    containerDiv.classList.add('winModal')
+    var newAddDiv = document.createElement('div')
+    newAddDiv.innerHTML = `<h1>What a game! Match Draw!</h1>`
+    containerDiv.appendChild(newAddDiv);
+
+    // After Mashing one of Principle Logic, Boxed click is not required.So, Stoping Boxed Click
+    for (let i = 0; i < 9; i++) {
+        box = document.getElementsByClassName('box')[i]
+        box.style.pointerEvents = 'none'
+        box.style.opacity = '.1'
+    }
+    // 
+    titleText = document.getElementById('titleText')
+    titleText.style.opacity = '.1'
+    drawSound = document.getElementById('drawSound')
+    drawSound.play()
+}
+
+// X Win Counter
+var countX = 1
+const XWinCount = () => {
+    var dispX = document.getElementById("XP");
+    dispX.innerText = countX;
+    countX++;
+}
+// O win counter
+var countO = 1
+const OWinCount = () => {
+    var disp = document.getElementById("OP");
+    disp.innerText = countO;
+    countO++;
+}
+// Draw Counter
+var count = 1
+const gameDrawCount = () => {
+    var disp = document.getElementById("draw");
+    disp.innerText = count;
+    count++;
+}
+//Wininng Modal Window is Removing By clicked itself.
+// WDR = Wining Display Remove
+var wDR = document.getElementById('winnigDisplay')
+wDR.addEventListener('click', function handleClick() {
+    reStart()
+    wDR.innerHTML = '';
+    wDR.style = '';
+    // when wining display is clicking , restart sound off 
+    document.getElementById('reStart-0').pause()
+    document.getElementById('reStrt-1').pause()
+    document.getElementById('reStrt-2').pause()
+    document.getElementById('reStrt-3').pause()
+});
 // When Restart Button Clicked
 document.getElementById('reStart').addEventListener('click', reStart)
 function reStart() {
-    // Boxes All Elements,HTML-Tag, InnerText, Style are being Empty. 
-    for (var i = 0; i < boxes.length; i++) {
-        divText = document.querySelectorAll('.box')[i]
-        divText.innerHTML = ' '
-        divText.style = 'none'
-        divText.title = 'Tanjimul'
-    }
-    bodyOpac = document.getElementById('body')
-    bodyOpac.style = 'none'
+    // Boxes All Elements; HTML-Tag, InnerText, Style are being Empty. 
+    removeBoxTittledisplayStyle()
+    bodyEle = document.getElementById('body')
+    bodyEle.style = ''
     // Win Show Modal display Properties are being Empty.
     containerDiv = document.getElementById('winnigDisplay')
-    containerDiv.innerHTML = ' '
-    // Title Text style Remove
-    titleOpa = document.getElementById('titleText')
-    titleOpa.style.opacity = ''
+    containerDiv.innerHTML = ''
+    TitleDisplayStyleRemove()
+    // Play With Computer Display Removeing
+    playComDisRemove()
+    // Restart Music is Playing
+    // Restart sound-0
+    R0 = document.getElementById('reStart-0')
+    R1 = document.getElementById('reStrt-1')
+    R2 = document.getElementById('reStrt-2')
+    R3 = document.getElementById('reStrt-3')
+    randomNum = Math.floor(Math.random() * 4)
+    if (randomNum == 0) {
+        R0.play()
+        R1.pause(), R2.pause(), R3.pause()
+    }
+    if (randomNum == 1) {
+        R1.play()
+        R0.pause(), R2.pause(), R3.pause()
+    }
+    if (randomNum == 2) {
+        R2.play()
+        R0.pause(), R1.pause(), R3.pause()
+    }
+    if (randomNum == 3) {
+        R3.play()
+        R0.pause(), R1.pause(), R2.pause()
+    }
+
+    // Play Music Display and Music Remove
+    music = document.getElementById('playMusic')
+    music.style = ''
+    music.pause()
     currentPlayer = X_TEXT
 };
+
+// Preference Button
+document.getElementById('preference').addEventListener('click', preferbtn = () => {
+    preferDis = document.getElementById('preferDis')
+    newPrefDiV = document.createElement('div')
+    newPrefDiV.classList.add('preferNewDivDis')
+    newPrefDiV.innerHTML = `<div class="offcanvas offcanvas-top preDivMod" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel">
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    <div class="offcanvas-body">
+    <p class="button" id='playWith' onclick="compDispFunc()">Play with Computer</p>
+    <!--UI DropDown Button  -->
+    <div class="dropdown" style='display:inline-block'>
+        <button style='border:none' class="button" data-bs-toggle="dropdown">
+            UI Change
+        </button>
+        <ul class="dropdown-menu dropdown-menu-dark">
+            <li><a class="dropdown-item" href="#" id='backGrounChan' onclick='backgroundChange()'>Background Change</a></li>
+            <li><a class="dropdown-item" href="#" id='font' onclick='fontFamily()'>Font Change</a></li>
+            <li><a class="dropdown-item" href="#" id='color' onclick='fontColor()'>Font Color</a></li>
+            <li><a class="dropdown-item" onclick="playMusicFunc();">Play Music</a></li>
+        </ul>
+    </div>
+    <div class="dropdown" style='display:inline-block'>
+    <button style='border:none' class="button" data-bs-toggle="dropdown">
+        Sound
+    </button>
+    <ul class="dropdown-menu dropdown-menu-dark"'
+        <li style='text-align:center'> <a class='button' id='soundOn' onclick='SoundOn()'  style='text-decoration:none;'>Sound On</a></li>
+        <li style='text-align:center'><a class='button' id='soundOff' onclick='SoundOff()' style='text-decoration:none;'>Sound Off<a></li>
+    </ul>
+</div>
+    </div>
+    </div>`
+    preferDis.appendChild(newPrefDiV)
+})
+// Play With Computer Display
+compDispFunc = () => {
+    preferDis = document.getElementById('preferDis')
+    preferDis.style = ''
+    preferDis.innerHTML = ''
+    playWithCom = document.getElementById('playWithCom')
+    playWithCom.innerHTML = '';
+    playWithCom.style.cursor = 'pointer'
+    newComDiV = document.createElement('p')
+    newComDiV.classList.add('playWithComNew')
+    newComDiV.innerHTML = `Play with Computer is not available now. I am trying to fixed it. Sorry for that. Thank You!`
+    playWithCom.style.opacity = '1'
+    // title Text div opacity
+    titleText = document.getElementById('titleText')
+    titleText.style.opacity = '.1'
+    // box div style
+    for (let i = 0; i < 9; i++) {
+        box = document.getElementsByClassName('box')[i]
+        box.style.opacity = '.1'
+    }
+    // Result div style
+    resultDisplay = document.getElementById('resultDisplay')
+    resultDisplay.style.opacity = '.1'
+    playWithCom.style.opacity = '1'
+    playWithCom.appendChild(newComDiV)
+}
+// play With Computer Display Remove
+var playWithCom = document.getElementById('playWithCom')
+playWithCom.addEventListener('click', playComDisRemove = () => {
+    playWithCom.style.cursor = 'pointer'
+    playWithCom.innerHTML = '';
+    playWithCom.style = '';
+    removeBoxTittledisplayStyle()
+    resultCounterDisplayRemove()
+})
+
+//Box and Tittle Display and Style Remove 
+function removeBoxTittledisplayStyle() {
+    // Box style remove
+    for (let i = 0; i < 9; i++) {
+        box = document.getElementsByClassName('box')[i]
+        box.innerHTML = ''
+        box.style = '';
+    }
+    // titleText style remove
+    titleText = document.getElementById('titleText')
+    titleText.style = ''
+}
+// TitleText Display & style Remove
+function TitleDisplayStyleRemove() {
+    titleText = document.getElementById('titleText')
+    titleText.style = ''
+}
+// Result display and style remove
+function resultCounterDisplayRemove() {
+    resultDisplay = document.getElementById('resultDisplay')
+    resultDisplay.style = ''
+}
+// UI Change Segment
+// BackGround Change
+backgroundChange = () => {
+    bodyCont = document.getElementById('body')
+    userText = prompt('Enter your favourite color name, color code, rgb, hsl. What Your Choice!')
+    bodyCont.style.backgroundColor = `${userText}`
+}
+// Font Family Change
+fontFamily = () => {
+    bodyCont = document.getElementById('body')
+    userText = prompt('Enter your favourite font name. What Your Choice!')
+    bodyCont.style.fontFamily = `${userText}`
+}
+// Font Color Change
+fontColor = () => {
+    bodyCont = document.getElementById('body')
+    userText = prompt('Enter your favourite color name, color code, rgb, hsl. What Your Choice!')
+    bodyCont.style.color = `${userText}`
+}
+// // BackGround Image adding
+// const fileInput = document.getElementById('file-input');
+// fileInput.addEventListener('change', backgroundChange = (e) => {
+//     bodyCont = document.getElementById('body')
+//     // img.src = `${prompt()}`
+//     img = (e.target.files[0].name);
+//     bodyCont.style.backgroundImage = `url('.A/Photography Collection/canyon-gfd9b8ffcc_1920.jpg')`
+//     console.log(e.target.files[0].mozFullPath)
+// });
+// Music Section
+// Sound On/Off
+if (document.getElementById('music').innerHTML) {
+    var musicInnerHtml = document.getElementById('music').innerHTML
+}
+function SoundOn() {
+    soundOn = document.getElementById('soundOn')
+    if (soundOn) {
+        music = document.getElementById('music')
+        music.innerHTML = `${musicInnerHtml}`
+    }
+    soundOn.style.backgroundColor = 'red'
+    document.getElementById('soundOff').style.backgroundColor = 'green'
+}
+function SoundOff() {
+    soundOff = document.getElementById('soundOff')
+    if (soundOff) {
+        music = document.getElementById('music')
+        music.innerHTML = ''
+        soundOff.style.backgroundColor = 'red'
+        document.getElementById('soundOn').style.backgroundColor = 'green'
+    }
+}
+// Play Music Button from UI Change
+const playMusicFunc = () => {
+    music = document.getElementById('playMusic')
+    music.play()
+    music.style.display = 'block'
+}
 // Starting Game From here
 startGame()

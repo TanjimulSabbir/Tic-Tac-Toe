@@ -5,25 +5,23 @@
 }
 
 body {
-    background-color: rgb(32, 32, 32);
-    /* background-image: url("https://janschreiber.github.io/img2/black-chalk.jpg"); */
     color: #dbe0df;
     text-align: center;
-    font-family: 'Indie Flower', 'Comic Sans', cursive;
     font-size: 0.7em;
     position: relative;
-    background-image: url(./images/marcel-strauss-lRIMRLE9SOk-unsplash.jpg);
+    background-color: rgb(2, 4, 31);
     background-repeat: no-repeat;
-
+    font-family: 'Poppins', sans-serif;
 }
 
-h1 {
-    margin-top: 2em;
+.titleText {
+    margin-top: 1.5em;
     line-height: 1em;
     margin-bottom: 0;
     padding-bottom: 5px;
     font-size: 3em;
     font-weight: bold;
+    font-family: 'Roboto', sans-serif;
 }
 
 .button {
@@ -33,17 +31,19 @@ h1 {
     display: inline-block;
     cursor: pointer;
     padding: 3px 7px 3px 7px;
-    border: 1px rgb(251, 251, 251) solid;
     border-radius: 2px;
+    background-color: rgb(5, 98, 205);
+    color: white;
 }
 
 .button:hover {
-    background: rgb(209, 208, 208);
+    background: rgb(255, 254, 254);
     color: #000;
+    border: 1px rgb(251, 251, 251) solid;
 }
 
 .gameBoard {
-    width: 450px;
+    width: 430px;
     margin: 0 auto;
     margin-top: 3em;
     display: grid;
@@ -52,8 +52,8 @@ h1 {
 
 .box {
     border-radius: 3px;
-    min-height: 120px;
-    min-width: 120px;
+    min-height: 110px;
+    min-width: 110px;
     border: rgb(249, 246, 246) 1px solid;
     display: flex;
     justify-content: center;
@@ -61,26 +61,82 @@ h1 {
     font-size: 70px;
     font-style: normal;
     font-family: "Permanent Marker", cursive;
-    color: rgb(4, 216, 174);
+    color: rgb(255, 255, 3);
     cursor: pointer;
 }
 
-@media only screen and (max-width: 350px) {
+@media only screen and (max-width: 568px) {
 
     /* For mobile phones: */
+    body {
+        color: #dbe0df;
+        font-size: 0.7em;
+        position: relative;
+        background-color: rgb(5, 5, 5);
+        font-family: 'Poppins', sans-serif;
+        justify-content: center;
+        background-image: url('./images/philip-myrtorp-HyRlP868JjI-unsplash.jpg');
+        background-size: contain;
+    }
+
+    .gameBoard {
+        width: 200px;
+        margin-top: 3em;
+        display: grid;
+        grid-template-columns: repeat(3, 3fr);
+        justify-content: center;
+    }
+
     .box {
         border-radius: 3px;
-        min-height: 100px;
-        min-width: 100px;
-        border: rgb(240, 6, 6) 1px solid;
+        min-height: 80px;
+        min-width: 80px;
+        border: rgb(250, 250, 250) 1px solid;
         display: flex;
         justify-content: center;
         align-items: center;
-        font-size: 30px;
-        font-family: "Permanent Marker";
-        color: rgb(4, 216, 174);
+        font-size: 50px;
+        font-family: 'Roboto', sans-serif;
+        color: rgb(246, 255, 4);
         cursor: pointer;
     }
+
+    .preDivMod {
+        min-width: 90%;
+        margin: 0 auto;
+        margin-top: 5%;
+        border-radius: 5px;
+        background: rgb(18, 1, 99);
+        min-height: 15%;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    .playWithComNew {
+        position: absolute;
+        min-width: 80%;
+        background: rgb(2, 45, 163);
+        border-radius: 10px;
+        top: 30%;
+        right: 0;
+        left: 0;
+        opacity: 1;
+        font-weight: bold;
+        margin: 0 auto;
+        padding: 10px;
+        font-size: 10px;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    #audioSection {
+        margin-top: 5%;
+        display: flex;
+        justify-content: center;
+    }
+
+    #musicSound span {
+        display: none;
+    }
+
 }
 
 .result {
@@ -91,7 +147,7 @@ h1 {
 .result span {
     font-size: 1em;
     color: whitesmoke;
-    font-family: 'Indie Flower', 'Comic Sens', cursive;
+    font-family: 'Poppins', sans-serif;
     margin-left: 15px;
     text-decoration: underline;
 }
@@ -99,7 +155,7 @@ h1 {
 .resultCount span {
     font-size: 1.1em;
     color: whitesmoke;
-    font-family: 'Indie Flower', 'Comic Sens', cursive;
+    font-family: 'Poppins', sans-serif;
     margin-left: 45px;
 }
 
@@ -112,6 +168,7 @@ h1 {
     top: 25%;
     right: 0;
     left: 0;
+    font-family: 'Source Code Pro', monospace;
 }
 
 .winModal h1 {
@@ -127,4 +184,47 @@ h1 {
 .winModal h1:hover {
     background-color: rgb(226, 220, 42);
     color: rgb(11, 11, 11);
+}
+
+.preDivMod {
+    max-width: 50%;
+    margin: 0 auto;
+    margin-top: 5%;
+    border-radius: 5px;
+    background: rgb(2, 45, 163);
+    min-height: 40%;
+    font-family: 'Poppins', sans-serif;
+}
+
+.playWithComNew {
+    position: absolute;
+    max-width: 40%;
+    background: rgb(2, 45, 163);
+    border-radius: 5px;
+    top: 30%;
+    right: 0;
+    left: 0;
+    opacity: 1;
+    margin: 0 auto;
+    padding: 15px;
+    font-size: 15px;
+    font-family: 'Source Code Pro', monospace;
+}
+
+#resultDisplay {
+    font-family: 'Source Code Pro', monospace;
+}
+
+#audioSection {
+    margin-top: 2%;
+    display: flex;
+    justify-content: space-between;
+}
+
+#playMusic {
+    display: none;
+}
+
+#musicSound span {
+    background: rgb(3, 184, 99);
 }
