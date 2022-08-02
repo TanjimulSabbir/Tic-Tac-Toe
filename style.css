@@ -65,6 +65,44 @@ body {
     cursor: pointer;
 }
 
+@media (min-width: 568px) and (max-width: 992px) {
+    #gameAuthor {
+        position: absolute;
+        background: rgb(0, 10, 72);
+        border-radius: 5px;
+        top: 0;
+        right: 0;
+        left: 0;
+        opacity: 1;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: justify;
+        min-width: 90%;
+        height: auto;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    #gameAuthor #imgDiv img {
+        border-radius: 50%;
+        width: 50%;
+        height: auto;
+        border: 1px red solid;
+    }
+
+    #imgDiv {
+        text-align: center;
+    }
+
+    #AboutText {
+        padding: 0 5px 2px 3px;
+        font-size: 9.5px;
+    }
+
+}
+
 @media only screen and (max-width: 568px) {
 
     /* For mobile phones: */
@@ -113,7 +151,7 @@ body {
 
     .playWithComNew {
         position: absolute;
-        min-width: 80%;
+        min-width: 90%;
         background: rgb(2, 45, 163);
         border-radius: 10px;
         top: 30%;
@@ -127,6 +165,45 @@ body {
         font-family: 'Poppins', sans-serif;
     }
 
+    #about {
+        margin-top: 1%;
+    }
+
+    #gameAuthor {
+        position: absolute;
+        background: rgb(1, 32, 116);
+        border-radius: 5px;
+        top: 0;
+        right: 0;
+        left: 0;
+        opacity: 1;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: justify;
+        min-width: 80%;
+        height: auto;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    #gameAuthor #imgDiv img {
+        border-radius: 50%;
+        width: 50%;
+        height: auto;
+        border: 1px red solid;
+    }
+
+    #imgDiv {
+        text-align: center;
+    }
+
+    #AboutText {
+        padding: 0 5px 2px 3px;
+        font-size: 9.5px;
+    }
+
     #audioSection {
         margin-top: 5%;
         display: flex;
@@ -136,7 +213,6 @@ body {
     #musicSound span {
         display: none;
     }
-
 }
 
 .result {
@@ -209,6 +285,40 @@ body {
     padding: 15px;
     font-size: 15px;
     font-family: 'Source Code Pro', monospace;
+}
+
+#about {
+    display: none;
+}
+
+#gameAuthor {
+    position: absolute;
+    background: rgb(1, 32, 116);
+    border-radius: 5px;
+    top: 20%;
+    right: 0;
+    left: 0;
+    opacity: 1;
+    margin: 0 auto;
+    padding: 15px;
+    font-size: 15px;
+    font-family: 'Source Code Pro', monospace;
+    display: flex;
+    text-align: justify;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    width: 70%;
+    margin: 0 auto;
+}
+
+#gameAuthor img {
+    margin-left: 10px;
+    border-radius: 50%;
+}
+
+#AboutText {
+    padding: 0 50px 0 30px;
 }
 
 #resultDisplay {

@@ -16,6 +16,7 @@
 <body class="body" id="body">
     <h1 class="titleText" id="titleText">Tic Tac Toe</h1>
     <div id="winnigDisplay"></div>
+    <div id="aboutAuthor"></div>
     <section class="container">
         <div class="gameBoard" id="gameBoard">
             <div id="0" class="box"></div>
@@ -57,49 +58,59 @@
         <section id="audioSection">
             <div id="music">
                 <!-- game Start Sound -->
-                <!-- <audio id='gameSrtSound'>
-                    <source src='./music/start/intro-music-black-box-brand-jingle-13222 (mp3cut.net).mp3' type="">
-                </audio> -->
+
                 <!-- Restart Sound -->
                 <audio id='reStart-0'>
-                    <source src='./music/restart/0/Crazy Castanets.mp3' type="">
+                    <source src='./music/restart/Audio-0.mp3' type="">
                 </audio>
                 <!-- Restart Sound 1 -->
                 <audio id="reStrt-1">
-                    <source src="./music/restart/1/128737228-light-happy-background-music-i.m4a" type="">
+                    <source src="./music/restart/Audio-1.m4a" type="">
                 </audio>
                 <!-- Restart sound 2 -->
                 <audio id="reStrt-2">
-                    <source src="./music/restart/2/034500498-happy-funny-sunny-comedy-short.m4a" type="">
+                    <source src="./music/restart/Audio-2.m4a" type="">
                 </audio>
                 <!-- Restart sound 3 -->
                 <audio id="reStrt-3">
-                    <source src="./music/restart/3/062762200-just-happy-second-loop-kids-co.m4a" type="">
+                    <source src="./music/restart/Audio-3.m4a" type="">
                 </audio>
                 <!-- X won the game Sound -->
                 <audio id='xSound-0'>
-                    <source src='./music/win/X/sfx-victory2.mp3' type="">
+                    <source src='./music/win/X/Audio-0.mp3' type="">
                 </audio>
                 <!--  x sound 1 -->
                 <audio id='xSound-1'>
-                    <source src='./music/win/X/1/080337448-win-sound-big-reward-happy-end.m4a' type="">
+                    <source src='./music/win/X/Audio-1.m4a' type="">
                 </audio>
                 <!-- x sound 2 -->
                 <audio id='xSound-2'>
-                    <source src='./music/win/X/2/011154876-winner-game.m4a' type="">
+                    <source src='./music/win/X/Audio-2.m4a' type="">
                 </audio>
 
                 <!-- O won the Game Sound -->
-                <audio id='oSound'>
-                    <source src='./music/win/O/064910672-game-win-04.m4a' type="">
+                <audio id='oSound-0'>
+                    <source src='./music/win/O/Audio-0.m4a' type="">
+                </audio>
+                <audio id='oSound-1'>
+                    <source src='./music/win/O/Audio-01.m4a' type="">
+                </audio>
+                <audio id='oSound-2'>
+                    <source src='./music/win/O/Audio-2.m4a' type="">
                 </audio>
                 <!-- Match Draw Sound -->
-                <audio id='drawSound'>
-                    <source src='./music/draw/mixkit-trumpet-fanfare-2293.wav' type="">
+                <audio id='drawSound-0'>
+                    <source src='./music/draw/Audio-0.wav' type="">
+                </audio>
+                <audio id='drawSound-1'>
+                    <source src='./music/draw/Audio-1.m4a' type="">
                 </audio>
                 <!-- Play Music Sound -->
                 <audio id='playMusic' controls>
                     <source src='./music/Play Music/Make It Happen.mp3' type="">
+                </audio>
+                <audio id='playMusic_Next'>
+                    <source src='./music/Play Music/Audio-1.mp3' type="">
                 </audio>
             </div>
             <!-- Game Sound On/Off -->
@@ -109,6 +120,42 @@
             </div>
         </section>
     </section>
+    <section id="about">
+        <div id="gameAuthor">
+            <div id="imgDiv">
+                <img src="./images/About/IMG_2385~41.jpg" alt="">
+            </div>
+            <div id="AboutText">
+                <Span style="font-size:15px ;">H</Span>i! I am Tanjimul Islam Sabbir. MY Favourite Colour is Skyblue.
+                Gardening is
+                my hobby. I have a indoor
+                garden. I love nature. In my leisure period, I collect various kinds of Nature Photo. My favourite
+                flower is
+                Water-hyacinths. It is a polyphyletic genus of the aquatic flowering plants.
+                <br>
+                <span style="font-size:15px ;">I</span> am a student of Rajshahi University. Studying at
+                Philosophy
+                Department.
+                I like Philosophy. Infinity is one of
+                my interested topic. Physics is my Favourite subject. Quantam Mechanics is my interested segment in
+                Physics.
+                Geo-Politics, Plants studies one of my notarable interested subject. I have a vest collection of
+                plants
+                photo. I
+                have a wish to published a Plant website.
+                <br>
+                <span style="font-size:15px ;">P</span>rogramming is my Passion. I love it. In my most time pass by
+                Coding. I am
+                a Front-end Web Developer. Python is my Favourite programming language. I want to be a Computer
+                Programmer. I
+                want to participate world programming competition. Programming is Dream. <br>
+                <span>Happy Gaming</span>
+                </p>
+            </div>
+        </div>
+    </section>
+
+
     <script src="./index.js"></script>
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"

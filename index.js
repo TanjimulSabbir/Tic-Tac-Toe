@@ -82,7 +82,7 @@ const gameOver = () => {
     containerDiv.appendChild(newAddDiv);
     if (currentPlayer == 'X') {
 
-        randomNum = Math.floor(Math.random() * 2)
+        randomNum = Math.floor(Math.random() * 3)
         if (randomNum == 0) {
             document.getElementById('xSound-0').play()
         }
@@ -94,8 +94,16 @@ const gameOver = () => {
         }
     }
     else {
-        oSound = document.getElementById('oSound')
-        oSound.play()
+        randomNum = Math.floor(Math.random() * 3)
+        if (randomNum == 0) {
+            document.getElementById('oSound-0').play()
+        }
+        if (randomNum == 1) {
+            document.getElementById('oSound-1').play()
+        }
+        if (randomNum == 2) {
+            document.getElementById('oSound-2').play()
+        }
     }
 }
 // When Principle Logic isn't Mashed Up with none.This Match Will be Draw.Showing Here Match Drawing By Modal Window.
@@ -112,12 +120,18 @@ const gameDraw = () => {
         box.style.pointerEvents = 'none'
         box.style.opacity = '.1'
     }
-    // 
+    // Draw
     titleText = document.getElementById('titleText')
     titleText.style.opacity = '.1'
-    drawSound = document.getElementById('drawSound')
-    drawSound.play()
+    randomNum = Math.floor(Math.random() * 2)
+    if (randomNum == 0) {
+        document.getElementById('drawSound-0').play()
+    }
+    if (randomNum == 1) {
+        document.getElementById('drawSound-1').play()
+    }
 }
+
 
 // X Win Counter
 var countX = 1
@@ -222,11 +236,19 @@ document.getElementById('preference').addEventListener('click', preferbtn = () =
     <button style='border:none' class="button" data-bs-toggle="dropdown">
         Sound
     </button>
+    <button style='border:none' class="button" data-bs-toggle="dropdown">
+        About
+    </button>
     <ul class="dropdown-menu dropdown-menu-dark"'
-        <li style='text-align:center'> <a class='button' id='soundOn' onclick='SoundOn()'  style='text-decoration:none;'>Sound On</a></li>
-        <li style='text-align:center'><a class='button' id='soundOff' onclick='SoundOff()' style='text-decoration:none;'>Sound Off<a></li>
+        <li style='text-align:center'>
+        <a class='button' onclick="aboutAuthor();" style='text-decoration:none;'>
+        Game Author</a>
+        </li>
+        <li style='text-align:center'>
+        <a class='button' id='game' style='text-decoration:none;'>Game<a>
+        </li>
     </ul>
-</div>
+     </div>
     </div>
     </div>`
     preferDis.appendChild(newPrefDiV)
@@ -346,5 +368,20 @@ const playMusicFunc = () => {
     music.play()
     music.style.display = 'block'
 }
+
+// About Author
+aboutAuthor = (e) => {
+    preferDis = document.getElementById('preferDis')
+    preferDis.style = ''
+    preferDis.innerHTML = ''
+    gameAuthor = document.getElementById('about')
+    gameAuthor.style.display = 'block'
+    gameAuthor.style.cursor = 'pointer'
+}
+gameAuthor = document.getElementById('gameAuthor')
+gameAuthor.addEventListener('click', gameAuthorRemv = () => {
+    gameAuthor.style.display = 'none'
+})
+
 // Starting Game From here
 startGame()
