@@ -234,20 +234,15 @@ document.getElementById('preference').addEventListener('click', preferbtn = () =
     </div>
     <div class="dropdown" style='display:inline-block'>
     <button style='border:none' class="button" data-bs-toggle="dropdown">
-        Sound
-    </button>
-    <button style='border:none' class="button" data-bs-toggle="dropdown">
+    Sound
+</button>
+<ul class="dropdown-menu dropdown-menu-dark"'
+    <li style='text-align:center'> <a class='button' id='soundOn' onclick='SoundOn()'  style='text-decoration:none;'>Sound On</a></li>
+    <li style='text-align:center'><a class='button' id='soundOff' onclick='SoundOff()' style='text-decoration:none;'>Sound Off<a></li>
+</ul>
+    <button style='border:none' onclick="aboutAuthor();" class="button" data-bs-toggle="dropdown">
         About
     </button>
-    <ul class="dropdown-menu dropdown-menu-dark"'
-        <li style='text-align:center'>
-        <a class='button' onclick="aboutAuthor();" style='text-decoration:none;'>
-        Game Author</a>
-        </li>
-        <li style='text-align:center'>
-        <a class='button' id='game' style='text-decoration:none;'>Game<a>
-        </li>
-    </ul>
      </div>
     </div>
     </div>`
@@ -330,15 +325,6 @@ fontColor = () => {
     userText = prompt('Enter your favourite color name, color code, rgb, hsl. What Your Choice!')
     bodyCont.style.color = `${userText}`
 }
-// // BackGround Image adding
-// const fileInput = document.getElementById('file-input');
-// fileInput.addEventListener('change', backgroundChange = (e) => {
-//     bodyCont = document.getElementById('body')
-//     // img.src = `${prompt()}`
-//     img = (e.target.files[0].name);
-//     bodyCont.style.backgroundImage = `url('.A/Photography Collection/canyon-gfd9b8ffcc_1920.jpg')`
-//     console.log(e.target.files[0].mozFullPath)
-// });
 // Music Section
 // Sound On/Off
 if (document.getElementById('music').innerHTML) {
@@ -370,7 +356,7 @@ const playMusicFunc = () => {
 }
 
 // About Author
-aboutAuthor = (e) => {
+aboutAuthor = () => {
     preferDis = document.getElementById('preferDis')
     preferDis.style = ''
     preferDis.innerHTML = ''
